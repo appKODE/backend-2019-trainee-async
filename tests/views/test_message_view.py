@@ -22,3 +22,13 @@ class TestMessage:
         assert resp.status == expected_status
 
     # TODO: проверить ошибки валидации входных параметров
+
+    async def test_message_fail_validation(self, client, mock_message_bad_data):
+        expected_status = 400
+        resp = await client.post(
+            '/api/pitter/v1/message',
+            json=mock_message_bad_data,
+            headers=AUTH_HEADER,
+        )
+
+        assert resp.status == expected_status

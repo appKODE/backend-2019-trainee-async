@@ -8,7 +8,7 @@ class Forbidden(ServerError):
 
 
 class ValidationError(ServerError):
-    status_code = 500
+    status_code = 400
     message = 'Ошибка проверки данных'
 
 
